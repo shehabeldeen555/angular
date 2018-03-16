@@ -1,0 +1,22 @@
+#title{
+  color: beige;
+  text-align: center;
+  font-size: 50px;
+
+}
+
+.container {
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  #contact {
+    background-color:rgb(177, 177, 177);
+    padding: 25px;
+    margin: 150px 0;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  }
+
+  

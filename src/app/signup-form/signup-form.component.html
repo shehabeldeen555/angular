@@ -1,0 +1,75 @@
+<h1 id="title">Shopping</h1>
+<div class="container" [hidden]="!submit">
+    <form [formGroup]="rForm" (ngSubmit)="onSignUp()" id="contact">
+        <div class="form-group">
+            <label for="firstname">First Name</label>
+            <input formControlName="firstname" id="firstname" type="text" class="form-control">
+            <div class="alert alert-danger" *ngIf="!rForm.controls['firstname'].valid && rForm.controls['firstname'].touched">First Name is required</div>
+        </div>
+        <div class="form-group">
+            <label for="lastname">Last Name</label>
+            <input formControlName="lastname" id="lastname" type="text" class="form-control">
+            <div class="alert alert-danger" *ngIf="!rForm.controls['lastname'].valid && rForm.controls['lastname'].touched">Last Name is required</div>
+        </div>
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input name="username" formControlName="username" id="username" type="text" class="form-control">
+            <div class="alert alert-danger" *ngIf="!rForm.controls['username'].valid && rForm.controls['username'].touched">Username is required</div>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input formControlName="password" id="password" type="password" class="form-control">
+            <div class="alert alert-danger" *ngIf="!rForm.controls['password'].valid && rForm.controls['password'].touched">{{passworderror}}</div>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input name="email" formControlName="email" id="email" type="email" class="form-control">
+            <div class="alert alert-danger" *ngIf="!rForm.controls['email'].valid && rForm.controls['email'].touched">email is required</div>
+        </div>
+
+        <div class="form-group radio">
+            <label class="center-block">
+                <input type="radio" formControlName="type" value="Customer">Customer</label>
+            <label class="center-block">
+                <input type="radio" formControlName="type" value="StoreOwner">Store Owner</label>
+        </div>
+
+
+        <input type="submit" class="btn btn-primary" value="Sign up" [disabled]="!rForm.valid">
+        <input type="button" class="btn btn-primary" value="Log in" (click)="changeSubmit()">
+
+    </form>
+</div>
+
+<div class="container" [hidden]="submit">
+    <form [formGroup]="lForm" (ngSubmit)="onSubmit()" id="contact">
+  
+      <div class="form-group">
+        <label for="username">Username or Email</label>
+        <input name="username" formControlName="username" id="username" type="text" class="form-control">
+        <div class="alert alert-danger" *ngIf="!lForm.controls['username'].valid && lForm.controls['username'].touched">Username or Email is required</div>
+      </div>
+  
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input formControlName="password" id="password" type="password" class="form-control">
+        <div class="alert alert-danger" *ngIf="!lForm.controls['password'].valid && lForm.controls['password'].touched">{{passworderror}}</div>
+      </div>
+  
+      <div class="form-group radio">
+        <label class="center-block">
+          <input type="radio" formControlName="type" value="Customer">Customer</label>
+        <label class="center-block">
+          <input type="radio" formControlName="type" value="StoreOwner">Store Owner</label>
+        <label class="center-block">
+          <input type="radio" formControlName="type" value="Admin">Admin</label>
+      </div>
+  
+  
+      <input type="button" class="btn btn-primary" value="Sign up" (click)="changeSubmit()">
+      <input type="submit" class="btn btn-primary" value="Log in" [disabled]="!lForm.valid">
+  
+    </form>
+  </div>
