@@ -8,12 +8,14 @@ import { HttpModule } from '@angular/http';
 import { DataService } from './data.service';
 import { AppRoutingModule } from './/app-routing.module';
 import { LoginFormComponent } from './login-form/login-form.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignupFormComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

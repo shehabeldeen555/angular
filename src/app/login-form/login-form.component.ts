@@ -23,4 +23,8 @@ export class LoginFormComponent {
 
   }
 
+  onLogIn(){
+    this.user = this.rForm.value;
+    this.dataService.login(this.user,this.rForm.get('type').value);
+  }
 }

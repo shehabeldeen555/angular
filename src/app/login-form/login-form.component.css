@@ -1,0 +1,17 @@
+h1,h2,h3,h4,h5{
+	color: #333;
+}
+
+.valign{
+	width: 100%;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 30%;
+	overflow: auto;
+}
+
+.btn-color{
+	background-color: #00b3b3;
+}
+

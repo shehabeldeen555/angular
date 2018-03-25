@@ -19,7 +19,9 @@ export class DataService {
   }
 
   login(user: User, type: string) {
-    return this.http.post("/api/" + type + "/Login", user, this.httpOptions).subscribe();
+    return this.http.post("/api/" + type + "/Login", user, this.httpOptions).subscribe(params =>{
+      console.log(params.json);
+    });
   }
 
   getCustomers(): Promise<User[]> {

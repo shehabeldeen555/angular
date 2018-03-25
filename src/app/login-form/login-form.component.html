@@ -1,3 +1,68 @@
-<p>
-  login-form works!
-</p>
+<nav class="navbar navbar-expand-lg navbar-dark navbar-fixed-top rounded" style="background-color: #00b3b3;">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="index.html" style="font-size: 22px;">KAFA’A</a>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html">Home
+                    <span class="sr-only">(current)</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="about.html">About</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container valign">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="panel panel-default">
+                <div class="panel panel-heading">
+                    <h3 class="panel-title">Log in to your account ..</h3>
+                </div>
+                <div class="panel-body">
+                    <form [formGroup]="rForm" (ngSubmit)="onLogIn()" role="form">
+
+                       
+                        <div class="form-group">
+                            <input name="username" formControlName="username" id="username" type="text" class="form-control" placeholder="Username / Email">
+                            <div class="alert alert-danger" *ngIf="!rForm.controls['username'].valid && rForm.controls['username'].touched">Username or Email is required</div>
+                        </div>
+
+                        <div class="form-group">
+                            <input formControlName="password" id="password" type="password" class="form-control" placeholder="Password">
+                            <div class="alert alert-danger" *ngIf="!rForm.controls['password'].valid && rForm.controls['password'].touched">{{passworderror}}</div>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="radio" value="Customer" formControlName="type"> Customer
+                            </label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="radio" formControlName="type" value="StoreOwner"> Store Owner
+                            </label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="radio" formControlName="type" value="Admin"> Admin
+                            </label>
+                        </div>
+
+
+                        <br>
+                        <br>
+                        <input type="submit" class="btn btn-primary btn-block btn-color" value="Log in" [disabled]="!rForm.valid">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
