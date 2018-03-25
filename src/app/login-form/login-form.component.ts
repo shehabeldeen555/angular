@@ -1,38 +1,26 @@
-import { User } from './User';
+import { User } from './../signup-form/User';
 import { DataService } from './../data.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ValidationErrors } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-
 @Component({
-  selector: 'signup-form',
-  templateUrl: './signup-form.component.html',
-  styleUrls: ['./signup-form.component.css']
+  selector: 'login-form',
+  templateUrl: './login-form.component.html',
+  styleUrls: ['./login-form.component.css']
 })
-export class SignupFormComponent{
+export class LoginFormComponent {
+
   rForm: FormGroup;
   user: User;
-  passworderror: string = 'You need to specify at least 8 characters';
 
   constructor(private fb: FormBuilder, private http: HttpClient, private dataService: DataService) {
     this.rForm = this.fb.group({
-      'firstname': [null, Validators.required],
-      'lastname': [null, Validators.required],
       'username': [null, Validators.required],
       'password': [null, Validators.compose([Validators.required, Validators.minLength(8)])],
-      'email': [null, Validators.required],
       'type': [null,Validators.required]
     })
-  }
 
-  private save(): void {
-    this.dataService.create(this.user, this.rForm.get('type').value);
-  }
-
-  onSignUp() {
-    this.user = this.rForm.value;
-    this.save();
   }
 
 }
