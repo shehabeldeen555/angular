@@ -27,7 +27,7 @@ export class SignupFormComponent{
   }
 
   private save(): void {
-    this.dataService.create(this.user, this.rForm.get('type').value);
+    this.dataService.register(this.user, this.rForm.get('type').value);
   }
 
   onSignUp() {

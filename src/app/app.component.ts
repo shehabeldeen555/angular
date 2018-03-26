@@ -15,8 +15,7 @@ export class AppComponent implements OnInit {
   constructor(private dataService: DataService){}
 
   getCustomers(){
-    return this.dataService.getCustomers().then(users=>
-      this.users=users);
+    return this.dataService.getCustomers();
   }
 
   ngOnInit():void{
