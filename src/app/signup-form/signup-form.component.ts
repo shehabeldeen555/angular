@@ -13,7 +13,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class SignupFormComponent{
   rForm: FormGroup;
   user: User;
+  notfound :boolean;
+  submit: boolean;
   passworderror: string = 'You need to specify at least 8 characters';
+  usernameErr: string= 'this username is not availabe';
 
   constructor(private fb: FormBuilder, private http: HttpClient, private dataService: DataService) {
     this.rForm = this.fb.group({
@@ -27,11 +30,13 @@ export class SignupFormComponent{
   }
 
   private save(): void {
-    this.dataService.register(this.user, this.rForm.get('type').value);
+    this.notfound=this.dataService.register(this.user, this.rForm.get('type').value);
+    
   }
 
   onSignUp() {
     this.user = this.rForm.value;
+    this.submit=true;
     this.save();
   }
 

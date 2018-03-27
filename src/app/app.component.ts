@@ -1,3 +1,4 @@
+import { ProductComponent } from './product/product.component';
 import { User } from './signup-form/User';
 import { Component, OnInit } from '@angular/core';
 import { DataService } from './data.service';
@@ -11,14 +12,13 @@ import { DataService } from './data.service';
 export class AppComponent implements OnInit {
 
   users:User[];
+  products: ProductComponent[];
 
   constructor(private dataService: DataService){}
 
-  getCustomers(){
-    return this.dataService.getCustomers();
-  }
+ 
 
   ngOnInit():void{
-      this.getCustomers();
+     this.dataService.getProducts();
   }
 }

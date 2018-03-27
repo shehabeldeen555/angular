@@ -9,13 +9,17 @@ import { DataService } from './data.service';
 import { AppRoutingModule } from './/app-routing.module';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { HomeComponent } from './home/home.component';
+import { ProductComponent } from './product/product.component';
+import { AddProductComponent } from './add-product/add-product.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignupFormComponent,
     LoginFormComponent,
-    HomeComponent
+    HomeComponent,
+    ProductComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,

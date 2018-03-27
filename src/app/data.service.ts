@@ -1,3 +1,4 @@
+import { ProductComponent } from './product/product.component';
 import { User } from './signup-form/User';
 import { Injectable } from '@angular/core';
 import { HttpModule, Http, Headers } from '@angular/http';
@@ -7,17 +8,19 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class DataService {
-
+ 
+  notfound : boolean;
   private httpOptions = {
     headers: new Headers({ 'Content-Type': 'application/json' })
   };
 
   constructor(private http: HttpClient) { }
 
-  register(user: User, type: string) {
-    return this.http.post("/api/" + type + "/register", user).subscribe(data => {
-      console.log(data);
-    });
+  register(user: User, type: string): boolean {
+     this.http.post<boolean>("/api/" + type + "/register", user).subscribe(data =>{
+       this.notfound=data;
+     });
+     return this.notfound;
   }
 
   login(user: User, type: string) {
@@ -40,7 +43,7 @@ export class DataService {
       }
     )
   }
-
+  
   getCustomers(): void {
     this.http.get<User[]>("/api/Customer/getAll").subscribe(
       data => {
@@ -55,6 +58,21 @@ export class DataService {
       }
     )
 
+  }
+
+  getProducts(): ProductComponent[]{
+    let product :ProductComponent[];
+    this.http.get<ProductComponent[]>("/api/Products").subscribe(
+      products =>{
+          // console.log(product);
+          product=products;
+      }
+    )
+    return product;
+  }
+
+  addProduct(product: ProductComponent){
+    this.http.post("/api/Products/addproduct", product).subscribe();
   }
 
 
