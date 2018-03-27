@@ -6,14 +6,17 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { promise } from 'protractor';
 import { Observable } from 'rxjs/Observable';
 
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json',
+    'Authorization': 'my-auth-token'
+  })
+};
+
 @Injectable()
 export class DataService {
  
   notfound : boolean;
-  private httpOptions = {
-    headers: new Headers({ 'Content-Type': 'application/json' })
-  };
-
   constructor(private http: HttpClient) { }
 
   register(user: User, type: string): boolean {
@@ -44,35 +47,16 @@ export class DataService {
     )
   }
   
-  getCustomers(): void {
-    this.http.get<User[]>("/api/Customer/getAll").subscribe(
-      data => {
-        console.log(data);
-      },
-      (err: HttpErrorResponse) => {
-        if (err.error instanceof Error) {
-          console.log("Error occured");
-        } else {
-          console.log("server side Error occured");
-        }
-      }
-    )
-
+  getCustomers(){
+    return this.http.get<User[]>("/api/Customer/getAll");
   }
 
-  getProducts(): ProductComponent[]{
-    let product :ProductComponent[];
-    this.http.get<ProductComponent[]>("/api/Products").subscribe(
-      products =>{
-          // console.log(product);
-          product=products;
-      }
-    )
-    return product;
+  getProducts(){
+    return this.http.get<ProductComponent[]>("/api/Products");
   }
 
-  addProduct(product: ProductComponent){
-    this.http.post("/api/Products/addproduct", product).subscribe();
+  addProduct(product: ProductComponent): Observable<ProductComponent> {
+    return this.http.post<ProductComponent>("/api/Products/addProduct", product, httpOptions);
   }
 
 
