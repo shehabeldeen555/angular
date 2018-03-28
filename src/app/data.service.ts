@@ -20,11 +20,8 @@ export class DataService {
   notfound : boolean;
   constructor(private http: HttpClient) { }
 
-  register(user: User, type: string): boolean {
-     this.http.post<boolean>("/api/" + type + "/register", user).subscribe(data =>{
-       this.notfound=data;
-     });
-     return this.notfound;
+  register(user: User, type: string){
+     return this.http.post<boolean>("/api/" + type + "/register", user);
   }
 
   login(user: User, type: string) {

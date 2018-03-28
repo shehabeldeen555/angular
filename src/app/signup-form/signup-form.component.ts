@@ -1,6 +1,8 @@
+import { promise } from 'protractor';
 import { User } from './User';
 import { DataService } from './../data.service';
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ValidationErrors } from '@angular/forms';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 
@@ -18,7 +20,7 @@ export class SignupFormComponent{
   passworderror: string = 'You need to specify at least 8 characters';
   usernameErr: string= 'this username is not availabe';
 
-  constructor(private fb: FormBuilder, private http: HttpClient, private dataService: DataService) {
+  constructor(private fb: FormBuilder, private http: HttpClient, private dataService: DataService, private location: Location) {
     this.rForm = this.fb.group({
       'firstname': [null, Validators.required],
       'lastname': [null, Validators.required],
@@ -29,15 +31,15 @@ export class SignupFormComponent{
     })
   }
 
-  private save(): void {
-    this.notfound=this.dataService.register(this.user, this.rForm.get('type').value);
-    
-  }
-
   onSignUp() {
     this.user = this.rForm.value;
     this.submit=true;
-    this.save();
+    this.dataService.register(this.user, this.rForm.get('type').value).subscribe(data =>{
+      this.notfound=data;
+      if(this.notfound){
+        this.location.go("/"+this.rForm.get('type').value,"");
+        window.location.reload(true);
+      }
+    });
   }
-
 }
