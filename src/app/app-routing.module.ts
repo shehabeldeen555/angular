@@ -1,3 +1,4 @@
+import { AddBrandComponent } from './add-brand/add-brand.component';
 import { CustomerComponent } from './customer/customer.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { ProductComponent } from './product/product.component';
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path : 'logIn' , component: LoginFormComponent  },
   { path : 'Products' , component: ProductComponent },
   { path : 'addProduct' , component: AddProductComponent},
-  { path : 'Customer' , component: CustomerComponent}
+  { path : 'Customer' , component: CustomerComponent},
+  { path : 'addBrand' , component: AddBrandComponent}
 
 ];
 

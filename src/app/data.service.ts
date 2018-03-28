@@ -1,3 +1,4 @@
+import { Brand } from './add-brand/brand';
 import { ProductComponent } from './product/product.component';
 import { User } from './signup-form/User';
 import { Injectable } from '@angular/core';
@@ -27,24 +28,7 @@ export class DataService {
   }
 
   login(user: User, type: string) {
-    return this.http.get<User>("/api/" + type + "/login/" + user.username).subscribe(params => {
-      if (params == null)
-        console.log("null");
-      else {
-        if (params.password === user.password)
-          console.log("true");
-        else
-          console.log("false");
-      }
-    },
-      (err: HttpErrorResponse) => {
-        if (err.error instanceof Error) {
-          console.log("Error occured");
-        } else {
-          console.log("server side Error occured");
-        }
-      }
-    )
+    return this.http.get<User>("/api/" + type + "/login/" + user.username);
   }
   
   getCustomers(){
@@ -57,6 +41,10 @@ export class DataService {
 
   addProduct(product: ProductComponent): Observable<ProductComponent> {
     return this.http.post<ProductComponent>("/api/Products/addProduct", product, httpOptions);
+  }
+
+  addBrand(brand: Brand): Observable<Brand>{
+    return this.http.post<Brand>("/api/Brand/addBrand", brand, httpOptions);
   }
 
 }
