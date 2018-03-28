@@ -14,7 +14,8 @@ export class LoginFormComponent {
 
   rForm: FormGroup;
   user: User;
-  found: boolean;
+  found: boolean= true;
+  passworderror: string = 'You need to specify at least 8 characters';
 
   constructor(private fb: FormBuilder, private http: HttpClient, private dataService: DataService, private location: Location) {
     this.rForm = this.fb.group({
@@ -28,9 +29,10 @@ export class LoginFormComponent {
   onLogIn(){
     this.user = this.rForm.value;
     this.dataService.login(this.user,this.rForm.get('type').value).subscribe(params => {
-      if (params == null)
+      if (params == null){
         console.log("null");
-      else {
+        this.found=false;
+      }else {
         if (params.password === this.user.password){
           console.log("true");
           this.found=true;
