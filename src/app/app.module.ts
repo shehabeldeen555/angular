@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { ProductComponent } from './product/product.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { CustomerComponent } from './customer/customer.component';
+import { AdminViewComponent } from './admin-view/admin-view.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { CustomerComponent } from './customer/customer.component';
     HomeComponent,
     ProductComponent,
     AddProductComponent,
-    CustomerComponent
+    CustomerComponent,
+    AdminViewComponent
   ],
   imports: [
     BrowserModule,
