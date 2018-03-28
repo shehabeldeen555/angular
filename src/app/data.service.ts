@@ -59,5 +59,4 @@ export class DataService {
     return this.http.post<ProductComponent>("/api/Products/addProduct", product, httpOptions);
   }
 
-
 }

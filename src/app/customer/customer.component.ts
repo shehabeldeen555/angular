@@ -16,7 +16,10 @@ export class CustomerComponent implements OnInit {
 
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.dataService.getProducts().subscribe(data => {
+      this.products=data;
+     });
   }
 
 }

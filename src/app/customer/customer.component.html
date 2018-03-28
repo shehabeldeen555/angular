@@ -1,3 +1,18 @@
-<p>
-  customer works!
-</p>
+<div class="row">
+<ul *ngFor="let product of products">
+  
+  <div class="col-md-4">
+    <li>
+      <div class="card text-left border-info" style="width: 18rem; height: 14rem;">
+        <div class="card-body">
+          <p class="card-text"><span><h5>name : </h5></span>{{product.name}}</p>
+          <p class="card-text"><span><h5>price : </h5></span>{{product.price}}</p>
+          <p class="card-text"><span><h5>category : </h5></span>{{product.category}}</p>
+          <p class="card-text"><span><h5>brand : </h5></span>{{product.brand}}</p>
+          <p class="card-text"><span><h5>type : </h5></span>{{product.type}}</p>
+        </div>
+      </div>
+    </li>
+  </div>  
+</ul>
+</div>
