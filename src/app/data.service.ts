@@ -1,3 +1,4 @@
+import { StoreComponent } from './store/store.component';
 import { Brand } from './add-brand/brand';
 import { ProductComponent } from './product/product.component';
 import { User } from './signup-form/User';
@@ -42,6 +43,10 @@ export class DataService {
 
   addBrand(brand: Brand): Observable<Brand>{
     return this.http.post<Brand>("/api/Brand/addBrand", brand, httpOptions);
+  }
+
+  addStore(store: StoreComponent): Observable<StoreComponent> {
+    return this.http.post<StoreComponent>("/api/Store/addStore", store, httpOptions);
   }
 
 }

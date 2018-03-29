@@ -14,6 +14,9 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { CustomerComponent } from './customer/customer.component';
 import { AddBrandComponent } from './add-brand/add-brand.component';
 import { AdminViewComponent } from './admin-view/admin-view.component';
+import { StoreOwnerComponent } from './store-owner/store-owner.component';
+import { AddStoreComponent } from './add-store/add-store.component';
+import { StoreComponent } from './store/store.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { AdminViewComponent } from './admin-view/admin-view.component';
     AddProductComponent,
     CustomerComponent,
     AddBrandComponent,
-    AdminViewComponent
+    AdminViewComponent,
+    StoreOwnerComponent,
+    AddStoreComponent,
+    StoreComponent
   ],
   imports: [
     BrowserModule,
