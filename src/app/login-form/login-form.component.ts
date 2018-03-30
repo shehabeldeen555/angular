@@ -36,7 +36,7 @@ export class LoginFormComponent {
         if (params.password === this.user.password){
           console.log("true");
           this.found=true;
-          this.location.go("/"+this.rForm.get('type').value,"");
+          this.location.go("/"+this.rForm.get('type').value+"/"+params.username,"");
           window.location.reload(true);
         } else{
           console.log("false");

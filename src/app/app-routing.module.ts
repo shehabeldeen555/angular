@@ -19,11 +19,11 @@ const routes: Routes = [
   { path : 'logIn'        , component: LoginFormComponent  },
   { path : 'Products'     , component: ProductComponent },
   { path : 'addProduct'   , component: AddProductComponent},
-  { path : 'Customer'     , component: CustomerComponent},
+  { path : 'Customer/:username'     , component: CustomerComponent},
   { path : 'addBrand'     , component: AddBrandComponent},
-  { path : 'Admin'        , component: AdminViewComponent},
-  { path : 'StoreOwner'   , component: StoreOwnerComponent},
-  { path : 'addStore'     , component: AddStoreComponent},
+  { path : 'Admin/:username'        , component: AdminViewComponent},
+  { path : 'StoreOwner/:username'   , component: StoreOwnerComponent},
+  { path : 'addStore/:username'     , component: AddStoreComponent},
   { path : 'storeRequest' , component: StoreRequestsComponent }
 ];
 

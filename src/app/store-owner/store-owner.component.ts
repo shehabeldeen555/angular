@@ -1,6 +1,8 @@
+import { DataService } from './../data.service';
 import { StoreComponent } from './../store/store.component';
 import { User } from './../signup-form/User';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-store-owner',
@@ -9,12 +11,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StoreOwnerComponent implements OnInit {
 
-  private user: User;
+  firstname: string ;
+  lastname: string ;
+  username: string ;
+  password: string ;
+  email: string ;
   stores: StoreComponent[];
 
-  constructor() { }
+  constructor(private dataService: DataService, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.params.subscribe(params=>{
+      this.username=params["username"];
+    });
+
+    this.dataService.getStores(this.username).subscribe(store =>{
+      this.stores=store;
+    });
   }
 
 }

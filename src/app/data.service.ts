@@ -61,4 +61,8 @@ export class DataService {
     return this.http.delete("/api/Store/deleteStore/"+id);
   }
 
+  getStores(username: string){
+    return this.http.get<StoreComponent[]>("/api/Store/getStores/"+username);
+  }
+
 }

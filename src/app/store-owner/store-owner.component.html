@@ -73,8 +73,8 @@
                 </svg>
               </a>
               <div class="collapse multi-collapse" id="multiCollapse2">
-                <ul>
-  
+                <ul *ngFor="let store of stores">
+                  <li><a href="">{{store.name}}</a></li>
                 </ul>
               </div>
             </li>
@@ -82,7 +82,7 @@
         </div>
       </nav>
       <div class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-        <a routerLink="/addStore"><button type="button" class="btn btn-lg">add Store</button></a>
+        <a [routerLink]="['/addStore',username]"><button type="button" class="btn btn-lg">add Store</button></a>
       </div>
     </div>
 </div>
