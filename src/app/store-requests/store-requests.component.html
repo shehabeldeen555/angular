@@ -1,0 +1,25 @@
+<div class="container-fluid">
+  <div class="row">
+    <ul *ngFor="let store of stores" class="col-md-4 pt-3 px-4">
+      <li class="card text-left border-info">
+        <div class="card-body">
+          <p class="card-text">
+            <span>
+              <h5>store name     : </h5>
+            </span>{{store.name}}</p>
+          <p class="card-text">
+            <span>
+              <h5>store type : </h5>
+            </span>{{store.type}}</p>
+          <p class="card-text">
+            <span>
+              <h5>store location : </h5>
+            </span>{{store.location}}</p>
+           
+          <button type="button" class="btn btn-info btn-padding" (click)="addStore(store)">Accept</button>
+          <button type="button" class="btn btn-info btn-padding" (click)="deleteStore(store)">Reject</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

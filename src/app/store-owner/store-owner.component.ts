@@ -1,3 +1,5 @@
+import { StoreComponent } from './../store/store.component';
+import { User } from './../signup-form/User';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,6 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./store-owner.component.css']
 })
 export class StoreOwnerComponent implements OnInit {
+
+  private user: User;
+  stores: StoreComponent[];
 
   constructor() { }
 

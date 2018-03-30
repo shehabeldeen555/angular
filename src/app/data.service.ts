@@ -49,4 +49,16 @@ export class DataService {
     return this.http.post<StoreComponent>("/api/Store/addStore", store, httpOptions);
   }
 
+  storeRequest(){
+    return this.http.get<StoreComponent[]>("/api/Store/getRequests"); 
+  }
+
+  acceptStrore(id: number){
+    return this.http.get("/api/Store/acceptStore/"+id);
+  }
+
+  rejectStore(id: number){
+    return this.http.delete("/api/Store/deleteStore/"+id);
+  }
+
 }

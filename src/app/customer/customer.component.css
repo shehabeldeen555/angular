@@ -4,6 +4,8 @@ h5,h4{
 
 #box{
   display: inline-table;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 .sidebar {

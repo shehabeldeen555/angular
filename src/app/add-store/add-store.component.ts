@@ -5,7 +5,7 @@ import { FormBuilder, FormGroup, Validators, ValidationErrors } from '@angular/f
 
 
 @Component({
-  selector: 'app-add-store',
+  selector: 'add-store',
   templateUrl: './add-store.component.html',
   styleUrls: ['./add-store.component.css']
 })
@@ -26,7 +26,7 @@ export class AddStoreComponent implements OnInit {
 
   addStore() {
     this.store=this.rForm.value;
-    this.dataService.addStore(this.store).subscribe;
+    this.dataService.addStore(this.store).subscribe();
   }
 
 }

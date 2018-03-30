@@ -17,6 +17,7 @@ import { AdminViewComponent } from './admin-view/admin-view.component';
 import { StoreOwnerComponent } from './store-owner/store-owner.component';
 import { AddStoreComponent } from './add-store/add-store.component';
 import { StoreComponent } from './store/store.component';
+import { StoreRequestsComponent } from './store-requests/store-requests.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { StoreComponent } from './store/store.component';
     AdminViewComponent,
     StoreOwnerComponent,
     AddStoreComponent,
-    StoreComponent
+    StoreComponent,
+    StoreRequestsComponent
   ],
   imports: [
     BrowserModule,
