@@ -27,6 +27,7 @@ export class AddProductComponent implements OnInit {
 
   addProduct(){
     this.product=this.rForm.value;
+    this.product.views=0;
     this.dataService.addProduct(this.product).subscribe();
   }
 

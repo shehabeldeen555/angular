@@ -12,6 +12,7 @@ export class ProductComponent implements OnInit {
   category: string;
   brand: string;
   type: string;
+  views: number;
 
   constructor() { }
 

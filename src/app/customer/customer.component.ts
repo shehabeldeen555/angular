@@ -1,3 +1,4 @@
+import { StoreComponent } from './../store/store.component';
 import { ProductComponent } from './../product/product.component';
 import { Component, OnInit } from '@angular/core';
 import { DataService } from './../data.service';
@@ -11,6 +12,7 @@ import { DataService } from './../data.service';
 export class CustomerComponent implements OnInit {
 
   products: ProductComponent[];
+  stores: StoreComponent[];
 
   constructor(private dataService: DataService) { 
 
@@ -20,6 +22,15 @@ export class CustomerComponent implements OnInit {
     this.dataService.getProducts().subscribe(data => {
       this.products=data;
      });
+
+     this.dataService.getAllStores().subscribe(data =>{
+       this.stores=data;
+     });
+  }
+
+  view(product: ProductComponent){
+    this.dataService.view(product).subscribe();
+
   }
 
 }

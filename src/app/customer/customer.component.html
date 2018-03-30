@@ -73,9 +73,9 @@
               </svg>
             </a>
             <div class="collapse multi-collapse" id="multiCollapse2">
-              <ul>
-
-              </ul>
+                <ul *ngFor="let store of stores">
+                    <li><a href="">{{store.name}}</a></li>
+                </ul>
             </div>
           </li>
         </ul>
@@ -90,23 +90,35 @@
                 <p class="card-text">
                   <span>
                     <h5>name : </h5>
-                  </span>{{product.name}}</p>
+                  </span>{{product.name}}
+                </p>
                 <p class="card-text">
                   <span>
                     <h5>price : </h5>
-                  </span>{{product.price}}</p>
+                  </span>{{product.price}}
+                </p>
                 <p class="card-text">
                   <span>
                     <h5>category : </h5>
-                  </span>{{product.category}}</p>
+                  </span>{{product.category}}
+                </p>
                 <p class="card-text">
                   <span>
                     <h5>brand : </h5>
-                  </span>{{product.brand}}</p>
+                  </span>{{product.brand}}
+                </p>
                 <p class="card-text">
                   <span>
                     <h5>type : </h5>
-                  </span>{{product.type}}</p>
+                  </span>{{product.type}}
+                </p>
+                <p class="card-text">
+                    <span>
+                      <h5>views : </h5>
+                    </span>{{product.views}}
+                </p>  
+
+                <button type="button" class="btn btn-info btn-padding" (click)="view(product)">view</button>  
             </div>
           </li>
         </ul>

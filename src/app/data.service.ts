@@ -65,4 +65,12 @@ export class DataService {
     return this.http.get<StoreComponent[]>("/api/Store/getStores/"+username);
   }
 
+  getAllStores(){
+    return this.http.get<StoreComponent[]>("/api/Store/getAll");
+  }
+
+  view(product: ProductComponent){
+    return this.http.get("/api/Products/view/"+product.id);
+  }
+
 }
