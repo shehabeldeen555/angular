@@ -1,3 +1,4 @@
+import { store_product } from './store/store_product';
 import { StoreComponent } from './store/store.component';
 import { Brand } from './add-brand/brand';
 import { ProductComponent } from './product/product.component';
@@ -45,6 +46,10 @@ export class DataService {
     return this.http.post<Brand>("/api/Brand/addBrand", brand, httpOptions);
   }
 
+  getBrands(){
+    return this.http.get<Brand[]>("/api/Brand/getAll");
+  }
+
   addStore(store: StoreComponent): Observable<StoreComponent> {
     return this.http.post<StoreComponent>("/api/Store/addStore", store, httpOptions);
   }
@@ -69,8 +74,20 @@ export class DataService {
     return this.http.get<StoreComponent[]>("/api/Store/getAll");
   }
 
-  view(product: ProductComponent){
-    return this.http.get("/api/Products/view/"+product.id);
+  view(storeID: number, productID: number){
+    return this.http.get("/api/Store_products/view/"+storeID+"/"+productID);
+  }
+
+  getProductsOfStore(id: number){
+    return this.http.get<store_product[]>("/api/Store_products/getAll/"+id);
+  }
+  
+  getProduct(id: number){
+    return this.http.get<ProductComponent>("/api/Products/getProduct/"+id);
+  }
+
+  addProductToStore(storeProduct: store_product): Observable<store_product> {
+    return this.http.post<store_product>("/api/Store_products/addProduct",storeProduct,httpOptions);
   }
 
 }

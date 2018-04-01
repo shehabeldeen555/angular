@@ -1,35 +1,33 @@
-import { store_product } from './store_product';
+import { StoreComponent } from './../store/store.component';
 import { ProductComponent } from './../product/product.component';
-import { DataService } from './../data.service';
-import { StoreOwnerComponent } from './../store-owner/store-owner.component';
+import { store_product } from './../store/store_product';
 import { Component, OnInit } from '@angular/core';
+import { DataService } from './../data.service';
 import { ActivatedRoute } from '@angular/router';
 
-
 @Component({
-  selector: 'app-store',
-  templateUrl: './store.component.html',
-  styleUrls: ['./store.component.css']
+  selector: 'app-store-view',
+  templateUrl: './store-view.component.html',
+  styleUrls: ['./store-view.component.css']
 })
-
-export class StoreComponent implements OnInit {
+export class StoreViewComponent implements OnInit {
 
   id: number;
-  name: string;
-  location: string;
-  type: string;
-  storeOwner: StoreOwnerComponent;
-  store: StoreComponent;
+  store: string;
   productID: store_product[]; 
   myproducts: ProductComponent[];
-  allproducts: ProductComponent[];
-
+  stores: StoreComponent[];
 
   constructor(private dataService: DataService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.params.subscribe(params=>{
       this.id=params["id"];
+      this.store=params["name"];
+    });
+
+    this.dataService.getAllStores().subscribe(data =>{
+      this.stores=data;
     });
 
     this.dataService.getProductsOfStore(this.id).subscribe( data => {
@@ -44,21 +42,13 @@ export class StoreComponent implements OnInit {
         })
       }
     });
-
-    this.dataService.getProducts().subscribe(data =>{
-      this.allproducts=data;
-    })
   }
 
-  add(product: ProductComponent){
-    let storeProduct: store_product ={
-      storeID: this.id,
-      productID: product.id,
-      views: 0,
-      sold: 0
-    }
-    this.dataService.addProductToStore(storeProduct).subscribe();
+  view(product: ProductComponent){
+    this.dataService.view(this.id,product.id).subscribe();
+  }
+  
+  refresh(){
     window.location.reload();
   }
-
 }

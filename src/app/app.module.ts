@@ -18,6 +18,7 @@ import { StoreOwnerComponent } from './store-owner/store-owner.component';
 import { AddStoreComponent } from './add-store/add-store.component';
 import { StoreComponent } from './store/store.component';
 import { StoreRequestsComponent } from './store-requests/store-requests.component';
+import { StoreViewComponent } from './store-view/store-view.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { StoreRequestsComponent } from './store-requests/store-requests.componen
     StoreOwnerComponent,
     AddStoreComponent,
     StoreComponent,
-    StoreRequestsComponent
+    StoreRequestsComponent,
+    StoreViewComponent
   ],
   imports: [
     BrowserModule,

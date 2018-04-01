@@ -15,7 +15,7 @@ export class AddStoreComponent implements OnInit {
   rForm: FormGroup;
   store: StoreComponent;
 
-  constructor(private fb: FormBuilder, private dataService: DataService, private route: ActivatedRoute,, private location: Location) { 
+  constructor(private fb: FormBuilder, private dataService: DataService, private route: ActivatedRoute, private location: Location) { 
     this.rForm = this.fb.group({
       'name': [null, Validators.required],
       'location': [null, Validators.required],

@@ -73,9 +73,11 @@
               </svg>
             </a>
             <div class="collapse multi-collapse" id="multiCollapse2">
-                <ul *ngFor="let store of stores">
-                    <li><a href="">{{store.name}}</a></li>
-                </ul>
+              <ul *ngFor="let store of stores">
+                <li>
+                  <a [routerLink]="['/StoreView',store.name,store.id]" (click)=refresh()>{{store.name}}</a>
+                </li>
+              </ul>
             </div>
           </li>
         </ul>
@@ -83,32 +85,79 @@
     </nav>
 
     <div class="col-md-10 ml-sm-auto col-lg-10 pt-3 px-4">
+
       <div class="row">
-        <ul *ngFor="let store of stores" class="">
+        <div class="col-md-12">
+          <div class="row justify-content-center">
+            <h4 class="col-md-10" id="head">{{store}} products</h4>
+          </div>
+        </div>
+        <div class="w-100 d-none d-md-block"></div>
+        <ul *ngFor="let product of myproducts" class="">
           <li class=" col-md-2 card text-left border-info" id="box" style="width: 18rem; height: 14rem;">
-              <svg class="card-img-top" width="286" height="180" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 286 180" preserveAspectRatio="none"><defs><style type="text/css">#holder_16273cecc01 text { fill:rgba(255,255,255,.75);font-weight:normal;font-family:Helvetica, monospace;font-size:14pt } </style></defs><g id="holder_16273cecc01"><rect width="286" height="180" fill="#777"></rect><g><text x="99.390625" y="96.28125">Store</text></g></g></svg>
-              <div class="card-body">
-                <p class="card-text">
-                  <span>
-                    <h5>name : </h5>
-                  </span>{{store.name}}
-                </p>
-                <p class="card-text">
-                  <span>
-                    <h5>location : </h5>
-                  </span>{{store.location}}
-                </p>
-                <p class="card-text">
-                  <span>
-                    <h5>type : </h5>
-                  </span>{{store.type}}
-                </p>
-                
-                <button type="button" class="btn btn-info btn-padding" (click)="view(store)">view</button>  
+            <svg class="card-img-top" width="286" height="180" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 286 180" preserveAspectRatio="none">
+              <defs>
+                <style type="text/css">
+                  #holder_16273cecc01 text {
+                    fill: rgba(255, 255, 255, .75);
+                    font-weight: normal;
+                    font-family: Helvetica, monospace;
+                    font-size: 14pt
+                  }
+                </style>
+              </defs>
+              <g id="holder_16273cecc01">
+                <rect width="286" height="180" fill="#777"></rect>
+                <g>
+                  <text x="99.390625" y="96.28125">product</text>
+                </g>
+              </g>
+            </svg>
+            <div class="card-body">
+              <p class="card-text">
+                <span>
+                  <h5>name : </h5>
+                </span>{{product.name}}
+              </p>
+              <p class="card-text">
+                <span>
+                  <h5>price : </h5>
+                </span>{{product.price}}
+              </p>
+              <p class="card-text">
+                <span>
+                  <h5>category : </h5>
+                </span>{{product.category}}
+              </p>
+              <p class="card-text">
+                <span>
+                  <h5>brand : </h5>
+                </span>{{product.brand}}
+              </p>
+              <p class="card-text">
+                <span>
+                  <h5>type : </h5>
+                </span>{{product.type}}
+              </p>
+              <p class="card-text">
+                <span>
+                  <h5>views : </h5>
+                </span>{{product.views}}
+              </p>
+              <p class="card-text">
+                <span>
+                  <h5>sold : </h5>
+                </span>{{product.sold}}
+              </p>
+
+              <button type="button" class="btn btn-info btn-padding" (click)="view(product)">view</button>
+
             </div>
           </li>
         </ul>
       </div>
+
     </div>
+
   </div>
 </div>
