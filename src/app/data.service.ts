@@ -19,11 +19,10 @@ const httpOptions = {
 @Injectable()
 export class DataService {
 
-  notfound: boolean;
   constructor(private http: HttpClient) { }
 
   register(user: User, type: string) {
-    return this.http.post<boolean>("/api/" + type + "/register", user, httpOptions);
+    return this.http.post<boolean>("/api/register", user, httpOptions);
   }
 
   login(user: User) {

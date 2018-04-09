@@ -15,7 +15,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 export class SignupFormComponent{
   rForm: FormGroup;
   user: User;
-  notfound :boolean;
+  notfound :boolean= true;
   submit: boolean;
   passworderror: string = 'You need to specify at least 8 characters';
   usernameErr: string= 'this username is not availabe';
@@ -33,6 +33,7 @@ export class SignupFormComponent{
 
   onSignUp() {
     this.user = this.rForm.value;
+    console.log(this.user.type);
     this.submit=true;
     this.dataService.register(this.user, this.rForm.get('type').value).subscribe(data =>{
       this.notfound=data;
