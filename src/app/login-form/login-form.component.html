@@ -19,27 +19,6 @@
                             <div class="alert alert-danger" *ngIf="!rForm.controls['password'].valid && rForm.controls['password'].touched">{{passworderror}}</div>
                         </div>
 
-                        <div class="form-check form-check-inline">
-                            <label class="form-check-label">
-                                <input class="form-check-input" type="radio" value="Customer" formControlName="type"> Customer
-                            </label>
-                        </div>
-
-                        <div class="form-check form-check-inline">
-                            <label class="form-check-label">
-                                <input class="form-check-input" type="radio" formControlName="type" value="StoreOwner"> Store Owner
-                            </label>
-                        </div>
-
-                        <div class="form-check form-check-inline">
-                            <label class="form-check-label">
-                                <input class="form-check-input" type="radio" formControlName="type" value="Admin"> Admin
-                            </label>
-                        </div>
-
-
-                        <br>
-                        <br>
                         <input type="submit" class="btn btn-primary btn-block btn-color" value="Log in" [disabled]="!rForm.valid">
                         <div class="alert alert-danger" *ngIf="!found">Invalid username or password</div>
                     </form>

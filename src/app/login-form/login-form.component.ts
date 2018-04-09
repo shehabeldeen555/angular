@@ -20,28 +20,22 @@ export class LoginFormComponent {
   constructor(private fb: FormBuilder, private http: HttpClient, private dataService: DataService, private location: Location) {
     this.rForm = this.fb.group({
       'username': [null, Validators.required],
-      'password': [null, Validators.compose([Validators.required, Validators.minLength(8)])],
-      'type': [null,Validators.required]
+      'password': [null, Validators.compose([Validators.required, Validators.minLength(8)])]
     })
 
   }
 
   onLogIn(){
     this.user = this.rForm.value;
-    this.dataService.login(this.user,this.rForm.get('type').value).subscribe(params => {
+    this.dataService.login(this.user).subscribe(params => {
       if (params == null){
         console.log("null");
         this.found=false;
       }else {
-        if (params.password === this.user.password){
           console.log("true");
           this.found=true;
-          this.location.go("/"+this.rForm.get('type').value+"/"+params.username,"");
+          this.location.go("/"+params.type+"/"+params.username,"");
           window.location.reload(true);
-        } else{
-          console.log("false");
-          this.found=false;
-        }
       }
     },
       (err: HttpErrorResponse) => {
