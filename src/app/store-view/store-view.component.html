@@ -36,7 +36,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link btn" data-toggle="collapse" href="#multiCollapse1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1"
+            <a class="nav-link" data-toggle="collapse" href="#multiCollapse1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1"
               style="text-align:left;">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart">
@@ -57,7 +57,7 @@
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link btn" data-toggle="collapse" href="#multiCollapse2" role="button" aria-expanded="false" aria-controls="multiCollapseExample1"
+            <a class="nav-link" data-toggle="collapse" href="#multiCollapse2" role="button" aria-expanded="false" aria-controls="multiCollapseExample1"
               style="text-align:left;">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round" class="feather feather-users">
@@ -84,36 +84,35 @@
       </div>
     </nav>
 
-    <div class="col-md-10 ml-sm-auto col-lg-10 pt-3 px-4">
-
+    <div class="col-md-10 ml-sm-auto col-lg-10 pt-3 px-4 main">
       <div class="row">
         <div class="col-md-12">
           <div class="row justify-content-center">
-            <h4 class="col-md-10" id="head">{{store}} products</h4>
+            <h4 class="col-md-11" id="head">{{store}} products</h4>
           </div>
         </div>
         <div class="w-100 d-none d-md-block"></div>
         <ul *ngFor="let product of myproducts" class="">
-          <li class=" col-md-2 card text-left border-info" id="box" style="width: 18rem; height: 14rem;">
-            <svg class="card-img-top" width="286" height="180" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 286 180" preserveAspectRatio="none">
+          <li class=" col-md-2 card text-left border-info" id="box" style="width: 15rem; height: 14rem;">
+            <svg class="card-img-top" width="286" height="120" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 286 120" preserveAspectRatio="none">
               <defs>
-                <style type="text/css">
-                  #holder_16273cecc01 text {
-                    fill: rgba(255, 255, 255, .75);
-                    font-weight: normal;
-                    font-family: Helvetica, monospace;
-                    font-size: 14pt
-                  }
-                </style>
+                  <style type="text/css">
+                      #holder_16273cecc01 text {
+                          fill: rgba(255, 255, 255, .75);
+                          font-weight: normal;
+                          font-family: Ultra, monospace;
+                          font-size: 16pt;
+                      }
+                  </style>
               </defs>
               <g id="holder_16273cecc01">
-                <rect width="286" height="180" fill="#777"></rect>
-                <g>
-                  <text x="99.390625" y="96.28125">product</text>
-                </g>
+                  <rect width="286" height="120" fill="#777"></rect>
+                  <g>
+                      <text x="75" y="67">{{product.name}}</text> 
+                  </g>
               </g>
-            </svg>
-            <div class="card-body">
+          </svg>
+            <div class="card-body product">
               <p class="card-text">
                 <span>
                   <h5>name : </h5>
@@ -149,15 +148,19 @@
                   <h5>sold : </h5>
                 </span>{{product.sold}}
               </p>
+              <p class="card-text">
+                <span>
+                  <h5>quantity : </h5>
+                </span>{{product.quantity}}
+              </p>
 
               <button type="button" class="btn btn-info btn-padding" (click)="view(product)">view</button>
+              <button type="button" class="btn btn-info btn-padding" (click)="buy(product)">buy</button>
 
             </div>
           </li>
         </ul>
       </div>
-
     </div>
-
   </div>
 </div>

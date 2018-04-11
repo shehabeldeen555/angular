@@ -19,7 +19,7 @@
                             <div class="alert alert-danger" *ngIf="!rForm.controls['password'].valid && rForm.controls['password'].touched">{{passworderror}}</div>
                         </div>
 
-                        <input type="submit" class="btn btn-primary btn-block btn-color" value="Log in" [disabled]="!rForm.valid">
+                        <input type="submit" class="btn btn-dark btn-block" value="Log in" [disabled]="!rForm.valid">
                         <div class="alert alert-danger" *ngIf="!found">Invalid username or password</div>
                     </form>
                 </div>

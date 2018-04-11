@@ -1,0 +1,30 @@
+<div class="container valign">
+  <div class="row justify-content-center">
+    <div class="col-md-4 offset-md-4">
+      <div class="panel panel-default">
+        <div class="panel panel-heading">
+          <h3 class="panel-title">Buy product..</h3>
+        </div>
+        <div class="panel-body">
+          <form [formGroup]="rForm" (ngSubmit)="buy()" role="form">
+
+
+            <div class="form-group">
+              <input name="quantity" formControlName="quantity" type="number" class="form-control" placeholder="Quantity">
+              <div class="alert alert-danger" *ngIf="!rForm.controls['quantity'].valid && rForm.controls['quantity'].touched">
+                {{quantityErr}}</div>
+            </div>
+
+            <div class="form-group">
+              <textarea formControlName="address" class="form-control" placeholder="shipping address" cols="30" rows="3"></textarea>
+              <div class="alert alert-danger" *ngIf="!rForm.controls['address'].valid && rForm.controls['address'].touched">{{addressErr}}</div>
+            </div>
+
+            <input type="submit" class="btn btn-primary btn-block btn-color" value="Buy" [disabled]="!rForm.valid">
+            <!-- <div class="alert alert-danger" *ngIf="!found">Invalid username or password</div> -->
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,3 +1,4 @@
+import { BuyProductComponent } from './buy-product/buy-product.component';
 import { StoreViewComponent } from './store-view/store-view.component';
 import { StoreComponent } from './store/store.component';
 import { StoreRequestsComponent } from './store-requests/store-requests.component';
@@ -16,48 +17,67 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
 
-  { path : '' ,
-    component: HomeComponent },
+  {
+    path: '',
+    component: HomeComponent
+  },
+  {
+    path: 'signUp',
+    component: SignupFormComponent
+  },
+  {
+    path: 'logIn',
+    component: LoginFormComponent
+  },
+  {
+    path: 'Products',
+    component: ProductComponent
+  },
+  {
+    path: 'addProduct',
+    component: AddProductComponent
+  },
+  {
+    path: 'Customer/:username',
+    component: CustomerComponent
+  },
+  {
+    path: 'addBrand',
+    component: AddBrandComponent
+  },
+  {
+    path: 'Admin/:username',
+    component: AdminViewComponent
+  },
+  {
+    path: 'StoreOwner/:username',
+    component: StoreOwnerComponent
+  },
+  {
+    path: 'Store/:id',
+    component: StoreComponent
+  },
+  {
+    path: 'addStore/:username',
+    component: AddStoreComponent
+  },
+  {
+    path: 'storeRequest',
+    component: StoreRequestsComponent
+  },
+  {
+    path: 'StoreView/:name/:id',
+    component: StoreViewComponent
+  },
+  {
+    path: 'buyProduct/:storeID/:productID',
+    component: BuyProductComponent
+  }
 
-  { path : 'signUp' ,
-    component: SignupFormComponent },
-
-  { path : 'logIn' ,
-    component: LoginFormComponent  },
-
-  { path : 'Products' ,
-    component: ProductComponent },
-
-  { path : 'addProduct' ,
-    component: AddProductComponent },
-    
-  { path : 'Customer/:username' ,
-    component: CustomerComponent },
-
-  { path : 'addBrand' ,
-    component: AddBrandComponent },
-
-  { path : 'Admin/:username',
-    component: AdminViewComponent },
-
-  { path : 'StoreOwner/:username'   ,
-    component: StoreOwnerComponent},
-  { path : 'Store/:id'     ,
-    component: StoreComponent},
-
-  { path : 'addStore/:username' ,
-    component: AddStoreComponent},
-
-  { path : 'storeRequest' ,
-    component: StoreRequestsComponent },
-
-  { path :'StoreView/:name/:id' ,
-    component: StoreViewComponent }  
-  
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes) ],
-  exports: [ RouterModule ]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }

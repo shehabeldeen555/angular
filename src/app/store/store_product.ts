@@ -3,4 +3,5 @@ export interface store_product {
     productID: number;
     views: number;
     sold: number;
+    quantity: number;
 }

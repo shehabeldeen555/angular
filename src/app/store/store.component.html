@@ -1,5 +1,6 @@
 <div class="container-fluid">
     <div class="row">
+
         <nav class="col-md-2 d-none d-md-block bg-light sidebar">
             <div class="sidebar-sticky">
                 <ul class="nav flex-column">
@@ -85,8 +86,7 @@
             </div>
         </nav>
 
-        <div class="col-md-10 ml-sm-auto col-lg-10 pt-3 px-4">
-
+        <div id="main" class="col-md-10 ml-sm-auto col-lg-10 px-4">
             <a class="btn btn-primary btn-color" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                 Add product to the store
             </a>
@@ -94,26 +94,26 @@
             <div class="collapse" id="collapseExample">
                 <div class="row">
                     <ul *ngFor="let product of allproducts" class="products">
-                        <li class=" col-md-2 card text-left border-info" id="box" style="width: 18rem; height: 14rem;">
-                            <svg class="card-img-top" width="286" height="180" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 286 180" preserveAspectRatio="none">
+                        <li class=" col-md-2 card text-left border-info" id="box" style="width: 15rem; height: 14rem;">
+                            <svg class="card-img-top" width="286" height="120" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 286 120" preserveAspectRatio="none">
                                 <defs>
                                     <style type="text/css">
                                         #holder_16273cecc01 text {
                                             fill: rgba(255, 255, 255, .75);
                                             font-weight: normal;
-                                            font-family: Helvetica, monospace;
-                                            font-size: 14pt
+                                            font-family: Ultra, monospace;
+                                            font-size: 16pt;
                                         }
                                     </style>
                                 </defs>
                                 <g id="holder_16273cecc01">
-                                    <rect width="286" height="180" fill="#777"></rect>
+                                    <rect width="286" height="120" fill="#777"></rect>
                                     <g>
-                                        <text x="99.390625" y="96.28125">product</text>
+                                        <text x="85" y="67">product</text>
                                     </g>
                                 </g>
                             </svg>
-                            <div class="card-body">
+                            <div class="card-body product">
                                 <p class="card-text">
                                     <span>
                                         <h5>name : </h5>
@@ -139,8 +139,12 @@
                                         <h5>type : </h5>
                                     </span>{{product.type}}
                                 </p>
-
-                                <button type="button" class="btn btn-info btn-padding" (click)="add(product)">add</button>
+                                <div class="input-group mb-3">
+                                    <input type="number" #quantity class="form-control" placeholder="quantity" min="1">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-info" (click)="add(product,quantity.value)" type="button" style="background-color: #2a80db;">Add</button>
+                                    </div>
+                                </div>
                             </div>
                         </li>
                     </ul>
@@ -150,31 +154,31 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="row justify-content-center">
-                        <h4 class="col-md-10" id="head">My Products</h4>
+                        <h4 class="col-md-11" id="head">My Products</h4>
                     </div>
                 </div>
                 <div class="w-100 d-none d-md-block"></div>
                 <ul *ngFor="let product of myproducts" class="">
-                    <li class=" col-md-2 card text-left border-info" id="box" style="width: 18rem; height: 14rem;">
-                        <svg class="card-img-top" width="286" height="180" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 286 180" preserveAspectRatio="none">
+                    <li class=" col-md-2 card text-left border-info" id="box" style="width: 15rem; height: 12rem;">
+                        <svg class="card-img-top" width="286" height="120" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 286 120" preserveAspectRatio="none">
                             <defs>
                                 <style type="text/css">
                                     #holder_16273cecc01 text {
                                         fill: rgba(255, 255, 255, .75);
                                         font-weight: normal;
-                                        font-family: Helvetica, monospace;
-                                        font-size: 14pt
+                                        font-family: Ultra, monospace;
+                                        font-size: 16pt;
                                     }
                                 </style>
                             </defs>
                             <g id="holder_16273cecc01">
-                                <rect width="286" height="180" fill="#777"></rect>
+                                <rect width="286" height="120" fill="#777"></rect>
                                 <g>
-                                    <text x="99.390625" y="96.28125">product</text>
+                                    <text x="85" y="67">product</text>
                                 </g>
                             </g>
                         </svg>
-                        <div class="card-body">
+                        <div class="card-body product">
                             <p class="card-text">
                                 <span>
                                     <h5>name : </h5>
@@ -206,17 +210,19 @@
                                 </span>{{product.views}}
                             </p>
                             <p class="card-text">
-                                    <span>
-                                        <h5>sold : </h5>
-                                    </span>{{product.sold}}
-                                </p>
-
+                                <span>
+                                    <h5>sold : </h5>
+                                </span>{{product.sold}}
+                            </p>
+                            <p class="card-text">
+                                <span>
+                                    <h5>quantity : </h5>
+                                </span>{{product.quantity}}
+                            </p>
                         </div>
                     </li>
                 </ul>
-            </div>
-
+            </div>   
         </div>
-
     </div>
 </div>

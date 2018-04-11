@@ -36,7 +36,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link btn" data-toggle="collapse" href="#multiCollapse1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1"
+              <a class="nav-link" data-toggle="collapse" href="#multiCollapse1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1"
                 style="text-align:left;">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                   stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart">
@@ -57,7 +57,7 @@
               </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link btn" data-toggle="collapse" href="#multiCollapse2" role="button" aria-expanded="false" aria-controls="multiCollapseExample1"
+              <a class="nav-link" data-toggle="collapse" href="#multiCollapse2" role="button" aria-expanded="false" aria-controls="multiCollapseExample1"
                 style="text-align:left;">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                   stroke-linecap="round" stroke-linejoin="round" class="feather feather-users">
@@ -74,15 +74,15 @@
               </a>
               <div class="collapse multi-collapse" id="multiCollapse2">
                 <ul *ngFor="let store of stores">
-                  <li><a [routerLink]="['/Store',store.id]">{{store.name}}</a></li>
+                  <li><a [routerLink]="['/Store',store.id]" style="color: #2a80db;">{{store.name}}</a></li>
                 </ul>
               </div>
             </li>
           </ul>
         </div>
       </nav>
-      <div class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-        <a [routerLink]="['/addStore',username]"><button type="button" class="btn btn-lg">add Store</button></a>
+      <div class="col-md-9 ml-sm-auto col-lg-10 px-4 main">
+        <a class="btn btn-secondary btn-lg button" [routerLink]="['/addStore',username]">Add Store</a>
       </div>
     </div>
 </div>

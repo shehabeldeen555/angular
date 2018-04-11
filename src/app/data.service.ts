@@ -77,6 +77,10 @@ export class DataService {
     return this.http.get("/api/Store_products/view/" + storeID + "/" + productID);
   }
 
+  buy(storeID: number, productID: number, quantity: number, address: string) {
+    return this.http.get("/api/Store_products/buy/" + storeID + "/" + productID + "/" + quantity + "/" + address);
+  }
+
   getProductsOfStore(id: number) {
     return this.http.get<store_product[]>("/api/Store_products/getAll/" + id);
   }

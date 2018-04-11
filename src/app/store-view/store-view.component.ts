@@ -4,6 +4,8 @@ import { store_product } from './../store/store_product';
 import { Component, OnInit } from '@angular/core';
 import { DataService } from './../data.service';
 import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+
 
 @Component({
   selector: 'app-store-view',
@@ -18,7 +20,7 @@ export class StoreViewComponent implements OnInit {
   myproducts: ProductComponent[];
   stores: StoreComponent[];
 
-  constructor(private dataService: DataService, private route: ActivatedRoute) { }
+  constructor(private dataService: DataService, private route: ActivatedRoute, private location: Location) { }
 
   ngOnInit() {
     this.route.params.subscribe(params=>{
@@ -37,6 +39,7 @@ export class StoreViewComponent implements OnInit {
         this.dataService.getProduct(i.productID).subscribe(product =>{
           product.views=i.views;
           product.sold=i.sold;
+          product.quantity=i.quantity;
           console.log(product);
           this.myproducts.push(product);
         })
@@ -46,6 +49,11 @@ export class StoreViewComponent implements OnInit {
 
   view(product: ProductComponent){
     this.dataService.view(this.id,product.id).subscribe();
+  }
+
+  buy(product: ProductComponent){
+    this.location.go("/buyProduct/"+this.id+"/"+product.id);
+    window.location.reload();
   }
   
   refresh(){

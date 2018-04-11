@@ -39,6 +39,7 @@ export class StoreComponent implements OnInit {
         this.dataService.getProduct(i.productID).subscribe(product =>{
           product.views=i.views;
           product.sold=i.sold;
+          product.quantity=i.quantity;
           console.log(product);
           this.myproducts.push(product);
         })
@@ -50,10 +51,11 @@ export class StoreComponent implements OnInit {
     })
   }
 
-  add(product: ProductComponent){
+  add(product: ProductComponent, quantity: number){
     let storeProduct: store_product ={
       storeID: this.id,
       productID: product.id,
+      quantity: quantity,
       views: 0,
       sold: 0
     }

@@ -14,6 +14,7 @@ export class ProductComponent implements OnInit {
   type: string;
   views: number;
   sold: number;
+  quantity: number;
 
   constructor() { }
 

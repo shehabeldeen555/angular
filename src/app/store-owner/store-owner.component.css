@@ -1,3 +1,9 @@
+.feather {
+  width: 16px;
+  height: 16px;
+  vertical-align: text-bottom;
+}
+
 .sidebar {
     position: fixed;
     top: 0;
@@ -7,10 +13,13 @@
     padding: 0;
     box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
   }
-  
+
+.button {
+  margin-top: 1rem;
+}
   .sidebar-sticky {
     position: -webkit-sticky;
-    position: sticky;
+    position: absolute;
     top: 48px; /* Height of navbar */
     height: calc(100vh - 48px);
     padding-top: .5rem;
@@ -29,7 +38,7 @@
   }
   
   .sidebar .nav-link.active {
-    color: #00b3b3;
+    color: #2a80db;
   }
   
   .sidebar .nav-link:hover .feather,
@@ -78,3 +87,6 @@
   .border-top { border-top: 1px solid #e5e5e5; }
   .border-bottom { border-bottom: 1px solid #e5e5e5; }
   
+  .main{
+    margin-top: 57px;
+  }
