@@ -35,6 +35,7 @@ export class BuyProductComponent implements OnInit {
 
   buy() {
     this.dataService.buy(this.storeID, this.productID, this.rForm.get("quantity").value, this.rForm.get("address").value).subscribe();
+    this.location.back();
   }
 
 }

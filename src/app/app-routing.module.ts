@@ -54,6 +54,10 @@ const routes: Routes = [
     component: StoreOwnerComponent
   },
   {
+    path: 'Store/:id/:username',
+    component: StoreComponent
+  },
+  {
     path: 'Store/:id',
     component: StoreComponent
   },

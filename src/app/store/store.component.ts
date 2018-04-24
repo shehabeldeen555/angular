@@ -18,41 +18,51 @@ export class StoreComponent implements OnInit {
   name: string;
   location: string;
   type: string;
-  storeOwner: StoreOwnerComponent;
+  storeOwner: string;
   store: StoreComponent;
-  productID: store_product[]; 
+  productID: store_product[];
   myproducts: ProductComponent[];
   allproducts: ProductComponent[];
-
+  storeOwners: StoreOwnerComponent[];
 
   constructor(private dataService: DataService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.route.params.subscribe(params=>{
-      this.id=params["id"];
+    this.route.params.subscribe(params => {
+      this.id = params["id"];
     });
 
-    this.dataService.getProductsOfStore(this.id).subscribe( data => {
-      this.productID=data;
-      this.myproducts=new Array();
-      for(let i of this.productID){
-        this.dataService.getProduct(i.productID).subscribe(product =>{
-          product.views=i.views;
-          product.sold=i.sold;
-          product.quantity=i.quantity;
-          console.log(product);
+    this.dataService.getStoreOwnerName(this.id).subscribe(data => {
+      this.store = data;
+      this.storeOwner = this.store.storeOwner;
+    });
+
+    this.dataService.getProductsOfStore(this.id).subscribe(data => {
+      this.productID = data;
+      this.myproducts = new Array();
+      for (let i of this.productID) {
+        this.dataService.getProduct(i.productID).subscribe(product => {
+          product.views = i.views;
+          product.sold = i.sold;
+          product.quantity = i.quantity;
           this.myproducts.push(product);
         })
       }
     });
 
-    this.dataService.getProducts().subscribe(data =>{
-      this.allproducts=data;
+    this.dataService.getProducts().subscribe(data => {
+      this.allproducts = data;
+    });
+
+    this.dataService.getStoreOwner().subscribe(data => {
+      this.storeOwners = data;
     })
+
+
   }
 
-  add(product: ProductComponent, quantity: number){
-    let storeProduct: store_product ={
+  add(product: ProductComponent, quantity: number) {
+    let storeProduct: store_product = {
       storeID: this.id,
       productID: product.id,
       quantity: quantity,
@@ -62,5 +72,10 @@ export class StoreComponent implements OnInit {
     this.dataService.addProductToStore(storeProduct).subscribe();
     window.location.reload();
   }
+
+  AddCollaborator(collaborator: string) {
+    this.dataService.addCollaborator(this.id, collaborator).subscribe();
+  }
+  
 
 }

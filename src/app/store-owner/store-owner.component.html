@@ -73,8 +73,8 @@
                 </svg>
               </a>
               <div class="collapse multi-collapse" id="multiCollapse2">
-                <ul *ngFor="let store of stores">
-                  <li><a [routerLink]="['/Store',store.id]" style="color: #2a80db;">{{store.name}}</a></li>
+                <ul>
+                  <li *ngFor="let store of stores"><a [routerLink]="['/Store',store.id]" style="color: #2a80db;">{{store.name}}</a></li>
                 </ul>
               </div>
             </li>

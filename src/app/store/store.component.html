@@ -86,11 +86,22 @@
             </div>
         </nav>
 
-        <div id="main" class="col-md-10 ml-sm-auto col-lg-10 px-4">
+        <div id="main" class="col-md-10 ml-sm-auto pt-3 col-lg-10 px-4">
+            <div class="input-group mb-3">
+                <input type="text" #coll class="form-control" placeholder="collaborator's username" list="collaborator">
+                <datalist id="collaborator">
+                    <ng-container *ngFor="let collab of storeOwners">
+                        <option *ngIf="collab.username !== storeOwner" value="{{collab.username}}">{{collab.username}}</option>
+                    </ng-container>
+                </datalist>
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="button" (click)="AddCollaborator(coll.value)">Add collaborator</button>
+                </div>
+            </div>
+            <hr>
             <a class="btn btn-primary btn-color" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                 Add product to the store
             </a>
-
             <div class="collapse" id="collapseExample">
                 <div class="row">
                     <ul *ngFor="let product of allproducts" class="products">
@@ -154,7 +165,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="row justify-content-center">
-                        <h4 class="col-md-11" id="head">My Products</h4>
+                        <h4 class="col-md-12" id="head">My Products</h4>
                     </div>
                 </div>
                 <div class="w-100 d-none d-md-block"></div>
@@ -222,7 +233,7 @@
                         </div>
                     </li>
                 </ul>
-            </div>   
+            </div>
         </div>
     </div>
 </div>
