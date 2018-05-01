@@ -1,3 +1,4 @@
+import { productHistory } from './store/productHistory';
 import { Collaborator } from './store-owner/collaborator';
 import { StoreOwnerComponent } from './store-owner/store-owner.component';
 import { store_product } from './store/store_product';
@@ -103,6 +104,10 @@ export class DataService {
     return this.http.get<store_product[]>("/api/Store_products/getAll/" + id);
   }
 
+  getStoreProduct(storeID: number, productID: number) {
+    return this.http.get<store_product>("/api/Store_products/getProduct/" + storeID + "/" + productID);
+  }
+
   getProduct(id: number) {
     return this.http.get<ProductComponent>("/api/Products/getProduct/" + id);
   }
@@ -113,6 +118,10 @@ export class DataService {
 
   addCollaborator(storeID: number, collaborator: string) {
     return this.http.get("/api/Collaborator/Add/" + storeID + "/" + collaborator);
+  }
+
+  addProductHistory(storeProduct: productHistory): Observable<productHistory> {
+    return this.http.post<productHistory>("/api/StoreProductHistory/add", storeProduct, httpOptions);
   }
 
 }

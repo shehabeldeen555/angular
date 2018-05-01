@@ -74,7 +74,7 @@
               </a>
               <div class="collapse multi-collapse" id="multiCollapse2">
                 <ul>
-                  <li *ngFor="let store of stores"><a [routerLink]="['/Store',store.id]" style="color: #2a80db;">{{store.name}}</a></li>
+                  <li *ngFor="let store of stores"><a [routerLink]="['/Store',store.id,username]" style="color: #2a80db;">{{store.name}}</a></li>
                 </ul>
               </div>
             </li>

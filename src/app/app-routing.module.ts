@@ -1,3 +1,4 @@
+import { StoreActionsComponent } from './store-actions/store-actions.component';
 import { BuyProductComponent } from './buy-product/buy-product.component';
 import { StoreViewComponent } from './store-view/store-view.component';
 import { StoreComponent } from './store/store.component';
@@ -76,6 +77,10 @@ const routes: Routes = [
   {
     path: 'buyProduct/:storeID/:productID',
     component: BuyProductComponent
+  },
+  {
+    path: 'StoreActions/:storeID',
+    component: StoreActionsComponent
   }
 
 ];
