@@ -2,6 +2,7 @@ import { ProductComponent } from './../product/product.component';
 import { Component, OnInit } from '@angular/core';
 import { DataService } from './../data.service';
 import { FormBuilder, FormGroup, Validators, ValidationErrors } from '@angular/forms';
+import { Brand } from '../add-brand/brand';
 
 @Component({
   selector: 'add-product',
@@ -11,6 +12,7 @@ import { FormBuilder, FormGroup, Validators, ValidationErrors } from '@angular/f
 export class AddProductComponent implements OnInit {
   rForm: FormGroup;
   product: ProductComponent;
+  brands: Brand[];
 
   constructor(private fb: FormBuilder, private dataService: DataService) { 
     this.rForm = this.fb.group({
@@ -23,11 +25,15 @@ export class AddProductComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.dataService.getBrands().subscribe(data =>{
+      this.brands=data;
+    })
   }
 
   addProduct(){
     this.product=this.rForm.value;
-    this.dataService.addProduct(this.product);
+    this.product.views=0;
+    this.dataService.addProduct(this.product).subscribe();
   }
 
 }

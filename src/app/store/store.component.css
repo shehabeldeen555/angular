@@ -1,0 +1,115 @@
+h5,h4{
+    display: inline;
+}
+
+#box{
+  display: inline-table;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+#head {
+  border: 2px solid white;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  margin-top: 1rem;
+  text-align: center;
+  vertical-align: middle;
+  background-color: #bfbfbf;
+  color: #262626;
+  font-family: Ultra, sans-serif;
+
+}
+
+.btn-color {
+    background-color: #2a80db;
+    border-color: #2a80db;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.border-info{
+  border-color:#2a80db!important; 
+}
+
+.feather {
+  width: 16px;
+  height: 16px;
+  vertical-align: text-bottom;
+}
+
+
+
+/*
+ * Sidebar
+ */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100; /* Behind the navbar */
+  padding: 0;
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+}
+
+.sidebar-sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 48px; /* Height of navbar */
+  height: calc(100vh - 48px);
+  padding-top: .5rem;
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+.sidebar .nav-link {
+  font-weight: 500;
+  color: #333;
+}
+
+.sidebar .nav-link .feather {
+  margin-right: 4px;
+  color: #999;
+}
+
+.sidebar .nav-link.active {
+  color: #2a80db;
+}
+
+.sidebar .nav-link:hover .feather,
+.sidebar .nav-link.active .feather {
+  color: inherit;
+}
+
+.sidebar-heading {
+  font-size: .75rem;
+  text-transform: uppercase;
+}
+
+  
+  /*
+   * Utilities
+   */
+  
+  .border-top { border-top: 1px solid #e5e5e5; }
+  .border-bottom { border-bottom: 1px solid #e5e5e5; }
+
+  p.card-text{
+    margin-bottom: 0.5rem;
+  }
+
+  .product{
+    padding: 0.5rem!important;
+    padding-top: 0rem!important;
+  }
+
+  div.input-group.mb-3{
+    margin-bottom: 0rem!important;
+  }
+  
+  #main{
+    margin-top: 57px; /* Space for fixed navbar */
+  }
+  

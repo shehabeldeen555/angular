@@ -12,6 +12,15 @@ import { HomeComponent } from './home/home.component';
 import { ProductComponent } from './product/product.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { CustomerComponent } from './customer/customer.component';
+import { AddBrandComponent } from './add-brand/add-brand.component';
+import { AdminViewComponent } from './admin-view/admin-view.component';
+import { StoreOwnerComponent } from './store-owner/store-owner.component';
+import { AddStoreComponent } from './add-store/add-store.component';
+import { StoreComponent } from './store/store.component';
+import { StoreRequestsComponent } from './store-requests/store-requests.component';
+import { StoreViewComponent } from './store-view/store-view.component';
+import { BuyProductComponent } from './buy-product/buy-product.component';
+import { StoreActionsComponent } from './store-actions/store-actions.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +30,16 @@ import { CustomerComponent } from './customer/customer.component';
     HomeComponent,
     ProductComponent,
     AddProductComponent,
-    CustomerComponent
+    CustomerComponent,
+    AddBrandComponent,
+    AdminViewComponent,
+    StoreOwnerComponent,
+    AddStoreComponent,
+    StoreComponent,
+    StoreRequestsComponent,
+    StoreViewComponent,
+    BuyProductComponent,
+    StoreActionsComponent
   ],
   imports: [
     BrowserModule,

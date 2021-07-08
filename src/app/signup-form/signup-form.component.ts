@@ -1,8 +1,10 @@
+import { promise } from 'protractor';
 import { User } from './User';
 import { DataService } from './../data.service';
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ValidationErrors } from '@angular/forms';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 
 
 @Component({
@@ -10,34 +12,35 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   templateUrl: './signup-form.component.html',
   styleUrls: ['./signup-form.component.css']
 })
-export class SignupFormComponent{
+export class SignupFormComponent {
   rForm: FormGroup;
   user: User;
-  notfound :boolean;
+  notfound: boolean = true;
   submit: boolean;
   passworderror: string = 'You need to specify at least 8 characters';
-  usernameErr: string= 'this username is not availabe';
+  usernameErr: string = 'this username is not availabe';
 
-  constructor(private fb: FormBuilder, private http: HttpClient, private dataService: DataService) {
+  constructor(private fb: FormBuilder, private http: HttpClient, private dataService: DataService, private location: Location) {
     this.rForm = this.fb.group({
       'firstname': [null, Validators.required],
       'lastname': [null, Validators.required],
       'username': [null, Validators.required],
       'password': [null, Validators.compose([Validators.required, Validators.minLength(8)])],
       'email': [null, Validators.required],
-      'type': [null,Validators.required]
+      'type': [null, Validators.required]
     })
-  }
-
-  private save(): void {
-    this.notfound=this.dataService.register(this.user, this.rForm.get('type').value);
-    
   }
 
   onSignUp() {
     this.user = this.rForm.value;
-    this.submit=true;
-    this.save();
+    console.log(this.user.type);
+    this.submit = true;
+    this.dataService.register(this.user, this.rForm.get('type').value).subscribe(data => {
+      this.notfound = data;
+      if (this.notfound) {
+        this.location.go("/" + this.user.type + "/" + this.user.username, "");
+        window.location.reload(true);
+      }
+    });
   }
-
 }

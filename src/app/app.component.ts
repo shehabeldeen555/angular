@@ -11,11 +11,12 @@ import { DataService } from './data.service';
 })
 export class AppComponent implements OnInit {
 
-  users:User[];
-  constructor(private dataService: DataService){}
+  users: User[];
+  signout: boolean = false;
+  constructor(private dataService: DataService) { }
 
 
-  ngOnInit(){
+  ngOnInit() {
   }
-  
+
 }

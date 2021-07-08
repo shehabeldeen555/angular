@@ -1,13 +1,13 @@
-<nav class="navbar navbar-expand-lg navbar-dark navbar-fixed-top rounded" style="background-color: #00b3b3;">
+<!-- <nav class="navbar navbar-expand-lg navbar-dark sticky-top flex-md-nowrap" style="background-color: #2f2f2f;">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01"
         aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" href="index.html" style="font-size: 22px;">KAFA’A</a>
+    <a class="navbar-brand" routerLink="/" style="font-size: 22px;">KAFA’A</a>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">Home
+                <a class="nav-link" routerLink="/">Home
                     <span class="sr-only">(current)</span>
                 </a>
             </li>
@@ -16,5 +16,13 @@
             </li>
         </ul>
     </div>
+</nav> -->
+<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" routerLink="/" style="font-size: 22px;">Kafa’a</a>
+        <ul *ngIf="signout" class="navbar-nav px-3">
+          <li class="nav-item text-nowrap">
+            <a class="nav-link" routerLink="/">Sign out</a>
+          </li>
+        </ul>
 </nav>
 <router-outlet></router-outlet>
